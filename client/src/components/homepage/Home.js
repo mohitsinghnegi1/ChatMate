@@ -64,21 +64,30 @@ export default function Home(props) {
         <div className='col-4 conversation-header '>
           <img src={avatar} className='avatar sender' />
         </div>
-        <div className='col-8 chat-header'></div>
+        <div className='col-8 chat-header '></div>
       </div>
 
       <div className='row w-100 m-0'>
         <div className='col-4  conversation-wrapper pr-0 pl-0'>
           {getConversations(receivers)}
         </div>
-        <div className='col-8 chat-wrapper'>
-          {isCoversationOpen && openConversation()}
+        <div className='col-8 chat-wrapper pr-0'>
+          <div className='chat-limiter'>
+            {isCoversationOpen && openConversation()}
+          </div>
           {!isCoversationOpen && renderDefaultConversationBox()}
           <div class='footer fixed-bottom typing-box'>
-            <input
-              type='text'
-              className='input-msg-box'
-              placeholder='Type Message Here'></input>
+            <form className='d-flex'>
+              <input
+                type='text'
+                className='input-msg-box'
+                placeholder='Type Message Here'></input>
+              <input
+                type='submit'
+                value='Send message'
+                className='primary-btn ml-4 pl-3 pr-3'
+              />
+            </form>
           </div>
         </div>
       </div>

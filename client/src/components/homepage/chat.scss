@@ -12,6 +12,8 @@
 .conversation-wrapper,
 .chat-wrapper {
   height: calc(100vh - 127px);
+}
+.conversation-wrapper {
   overflow-y: scroll;
 }
 
@@ -42,12 +44,12 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(207, 206, 206);
+  background: rgb(165, 165, 165);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(190, 190, 190);
+  background: rgb(165, 165, 165);
 }
 .typing-box {
   position: absolute;
@@ -67,4 +69,24 @@
 }
 .chat-wrapper {
   background-image: url('../../assets/img/pattern.jpg');
+}
+.primary-btn {
+  background: #13273b 0% 0% no-repeat padding-box;
+  border-radius: 24px;
+  opacity: 1;
+  text-align: center;
+  font: medium 18px/25px Source Sans Pro;
+  letter-spacing: -0.18px;
+  color: #ffffff;
+  opacity: 1;
+}
+.chat-limiter {
+  height: 100%;
+  overflow-y: scroll;
+}
+.message {
+  background-color: honeydew;
+  width: fit-content;
+  padding: 10px 30px;
+  margin: 10px 0px;
 }
