@@ -3,7 +3,9 @@ import avatar from '../../assets/img/user.png';
 import './conversation.scss';
 export default function Conversation(props) {
   return (
-    <div className='row conversation w-100 mr-0 ml-0'>
+    <div
+      className='row conversation w-100 mr-0 ml-0'
+      onClick={() => props.setIsConversationOpen(true)}>
       <div className='col-2 d-flex '>
         <img src={avatar} className='avatar' />
       </div>

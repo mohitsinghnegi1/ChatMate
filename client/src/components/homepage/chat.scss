@@ -26,11 +26,12 @@
 }
 .chatmate-head {
   font-weight: 800;
+  color: #27ad36;
 }
 .chatmate-desc {
   margin: auto;
   width: 500px;
-  color: #13273b;
+  color: rgb(204, 200, 200);
   max-width: 80vw;
 }
 ::-webkit-scrollbar {
@@ -81,12 +82,13 @@
   opacity: 1;
 }
 .chat-limiter {
-  height: 100%;
+  height: calc(100% - 68px);
   overflow-y: scroll;
 }
 .message {
   background-color: honeydew;
   width: fit-content;
+  max-width: 72%;
   padding: 10px 30px;
   margin: 10px 0px;
 }

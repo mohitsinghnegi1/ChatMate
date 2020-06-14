@@ -34,13 +34,19 @@ export default class ConversationBox extends Component {
       'Hi ',
       'I am Ok ',
       'Thank god',
+      'New Feature We can Inset Emoji using Emoji code <3 :p New Feature We can Inset Emoji using Emoji code New Feature We can Inset Emoji using Emoji code',
+      'my Emojis :)',
+      ':) :( ',
+      '(⊙＿⊙)',
     ];
+    // TODO pass message and username or user id to differentiate user
+
     return conversation.map((message) => {
       return <Messagebox msg={message} />;
     });
   };
 
   render() {
-    return <div>{this.renderMessage()}</div>;
+    return <React.Fragment>{this.renderMessage()}</React.Fragment>;
   }
 }

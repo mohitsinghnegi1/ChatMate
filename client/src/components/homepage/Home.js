@@ -6,10 +6,14 @@ import avatar from '../../assets/img/sender_avatar.jpg';
 import start_chat from '../../assets/img/start_chat.svg';
 import './chat.scss';
 import ConversationBox from './ConversationBox';
+import ScrollToBottom from 'react-scroll-to-bottom';
 // import { GetUserMeals } from '../../services/util';
 
 export default function Home(props) {
-  var [isCoversationOpen, setIsConversationOpen] = useState(true);
+  //This state will show default conversation box if it false
+  var [isCoversationOpen, setIsConversationOpen] = useState(false);
+
+  //This state will hold all the list of user that registered in Chat Mate except One who is logined
   var [receivers, setReceivers] = useState([
     'Joe Chandler',
     'Mohit Singh',
@@ -21,6 +25,9 @@ export default function Home(props) {
     'Namved Hussain',
   ]);
 
+  //set message
+  const [message, setMessage] = useState('');
+
   // useEffect(() => {
   //   GetUserMeals(changeState, setTotalCalories);
   //   getTodayMeals(userMeals);
@@ -29,14 +36,27 @@ export default function Home(props) {
   // useEffect(() => {
   //   getTodayMeals(userMeals);
   // }, [userMeals]);
+
   const getConversations = (receivers) => {
     return receivers.map((receiver) => {
-      return <Conversation name={receiver} />;
+      return (
+        <Conversation
+          name={receiver}
+          setIsConversationOpen={setIsConversationOpen}
+        />
+      );
     });
   };
 
   const openConversation = () => {
     return <ConversationBox />;
+  };
+
+  const sendMessage = (event) => {
+    event.preventDefault();
+    if (message) {
+      //TODO send this message the the current receiver using socket.io
+    }
   };
 
   const renderDefaultConversationBox = () => {
@@ -72,20 +92,29 @@ export default function Home(props) {
           {getConversations(receivers)}
         </div>
         <div className='col-8 chat-wrapper pr-0'>
-          <div className='chat-limiter'>
-            {isCoversationOpen && openConversation()}
-          </div>
+          {isCoversationOpen && (
+            <ScrollToBottom className='chat-limiter'>
+              {openConversation()}
+            </ScrollToBottom>
+          )}
           {!isCoversationOpen && renderDefaultConversationBox()}
           <div class='footer fixed-bottom typing-box'>
             <form className='d-flex'>
               <input
                 type='text'
                 className='input-msg-box'
-                placeholder='Type Message Here'></input>
+                placeholder='Type Message Here'
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
+                onKeyPress={(event) =>
+                  event.key === 'Enter' ? sendMessage(event) : null
+                }
+              />
               <input
                 type='submit'
                 value='Send message'
                 className='primary-btn ml-4 pl-3 pr-3'
+                onClick={(event) => sendMessage(event)}
               />
             </form>
           </div>
