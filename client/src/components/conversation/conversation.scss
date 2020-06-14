@@ -1,0 +1,23 @@
+.conversation {
+  border: 1px solid #dfe3e8;
+
+  opacity: 1;
+  padding: 10px 0px;
+  .chat {
+    .receiver {
+      font-size: 16px;
+      text-transform: capitalize;
+      font-weight: 600;
+    }
+    .last-msg {
+      font-weight: 500;
+      text-transform: capitalize;
+      font-size: 14px;
+    }
+  }
+}
+.conversation:hover {
+  background: rgb(236, 240, 237) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 1px 4px #3663ad33;
+  //   border: 1px solid #47627e;
+}

@@ -1,0 +1,70 @@
+.conversation-header,
+.chat-header {
+  // height: 60px;
+  // background-color: grey;
+  border: 1px solid #dfe3e8;
+  background-color: #f0f0f0;
+  padding: 12px 24px;
+  padding-left: 20px;
+  // border-bottom: 2px solid #47627e;
+  position: relative;
+}
+.conversation-wrapper,
+.chat-wrapper {
+  height: calc(100vh - 127px);
+  overflow-y: scroll;
+}
+
+.start-chat {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.chatmate-head {
+  font-weight: 800;
+}
+.chatmate-desc {
+  margin: auto;
+  width: 500px;
+  color: #13273b;
+  max-width: 80vw;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(207, 206, 206);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(190, 190, 190);
+}
+.typing-box {
+  position: absolute;
+  border: 1px solid #dfe3e8;
+  background-color: #f0f0f0;
+  padding: 12px 24px;
+  padding-left: 20px;
+  height: 68px;
+}
+.input-msg-box {
+  width: 100%;
+  line-height: 44px;
+  border-radius: 20px;
+  color: rgb(180, 176, 176);
+  font-size: 20px;
+  padding-left: 20px;
+}
+.chat-wrapper {
+  background-image: url('../../assets/img/pattern.jpg');
+}
