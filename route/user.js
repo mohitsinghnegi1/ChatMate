@@ -72,7 +72,7 @@ router.post('/', (req, res) => {
 
 router.get('/', verifyAuth, async (req, res) => {
   try {
-    let userModel = await User.find().limit(5);
+    let userModel = await User.find();
 
     res.status(200).send(userModel);
   } catch (e) {

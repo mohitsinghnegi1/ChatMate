@@ -7,41 +7,32 @@ import start_chat from '../../assets/img/start_chat.svg';
 import './chat.scss';
 import ConversationBox from './ConversationBox';
 import ScrollToBottom from 'react-scroll-to-bottom';
-// import { GetUserMeals } from '../../services/util';
+import { GetReceivers } from '../../services/util';
 
 export default function Home(props) {
   //This state will show default conversation box if it false
   var [isCoversationOpen, setIsConversationOpen] = useState(false);
 
-  //This state will hold all the list of user that registered in Chat Mate except One who is logined
-  var [receivers, setReceivers] = useState([
-    'Joe Chandler',
-    'Mohit Singh',
-    'Ritesh Singh',
-    'Pratp Singh',
-    'bipul Singh',
-    'jatin Assif',
-    'karam Jali',
-    'Namved Hussain',
-  ]);
-
   //set message
   const [message, setMessage] = useState('');
+  //This state will hold all the list of user that registered in Chat Mate except One who is logined
+  const [receivers, setReceivers] = useState([]);
 
-  // useEffect(() => {
-  //   GetUserMeals(changeState, setTotalCalories);
-  //   getTodayMeals(userMeals);
-  // }, []);
+  useEffect(() => {
+    GetReceivers(setReceivers);
+  }, []);
 
   // useEffect(() => {
   //   getTodayMeals(userMeals);
   // }, [userMeals]);
 
   const getConversations = (receivers) => {
+    console.log(receivers);
     return receivers.map((receiver) => {
       return (
         <Conversation
-          name={receiver}
+          name={receiver.username}
+          otherInfo={receiver}
           setIsConversationOpen={setIsConversationOpen}
         />
       );
