@@ -1,4 +1,4 @@
 const config = {
-  USER_BASE_URL: 'http://localhost:4000/api/user',
+  USER_BASE_URL: 'http://localhost:5000/api/user',
 };
 export default config;

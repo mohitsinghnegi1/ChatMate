@@ -5,12 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd client && npm run build",
-    "start": "nodemon server.js",
-    "install-client": "cd client && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
-    "client": "cd client && npm start",
-    "dev": "concurrently \"npm run client\" \"npm run start\""
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +16,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.10",
     "mongoose-type-email": "^1.0.12",
