@@ -31,6 +31,6 @@ app.listen(Port, () => {
 // res.send(500,errmsg)
 // res.status(404).send(msg)
 //courses.find(c)
-//const index=courses.indexOf()
+//const index=courses.indexOf()/
 //course.splice(index,1) go to index and delete one entry
 //return imediatly in case of error
