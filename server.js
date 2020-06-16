@@ -20,7 +20,10 @@ app.use('/api/user', (req, res, next) => {
 const userRoutes = require('./route/user');
 app.use('/api/user', userRoutes);
 
-//app.get ,post ,delete ,patch to update
+// Serve static files from the React app
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+}
 
 app.listen(Port, () => {
   console.log('your server is running on Port %d', Port);
