@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 // Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node. js. It manages relationships between data, provides schema validation, and is used to translate between objects in code and the representation of those objects in MongoDB.
 require('dotenv/config');
 
-const URI = process.env.DB_CONNECTION;
+const URI =
+  'mongodb+srv://mohitsinghnegi1:dbUserPassword@cluster0-nj1kh.mongodb.net/ChatMate?retryWrites=true&w=majority';
 const connectDB = async () => {
   await mongoose
     .connect(URI, {
