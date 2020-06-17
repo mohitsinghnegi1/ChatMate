@@ -20,11 +20,14 @@ app.use('/api/user', (req, res, next) => {
 const userRoutes = require('./route/user');
 app.use('/api/user', userRoutes);
 
-// Serve static files from the React app
 if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
   app.use(express.static(path.join(__dirname, 'client/build')));
+  // Handle React routing, return all requests to React app
+  app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
 }
-
 app.listen(Port, () => {
   console.log('your server is running on Port %d', Port);
 });
